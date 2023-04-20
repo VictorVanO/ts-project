@@ -13,14 +13,24 @@ const url = 'https://api.atlassian.com/oauth/token/accessible-resources';
 
 // Création d'une interface pour spécifier les propriétés de l'objet
 interface Authentication {
+    clientId: string;
+    clientSecret: string;
     cloudId: string;
     token: string;
 }
 
+interface Users {
+    uid: string;
+    name: string;
+    accountType: string;
+}
+
 // Création de l'objet
 const authObj: Authentication = {
-  cloudId: '',
-  token: ''
+    clientId: '',
+    clientSecret: '',
+    cloudId: '',
+    token: ''
 };
 
 
