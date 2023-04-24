@@ -4,5 +4,5 @@ export interface OAuth2 {
     clientSecret: string|undefined;
     cloudId?: string;
     accessToken?: string;
-    expiresIn: number;
+    expiresIn?: number;
 }

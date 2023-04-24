@@ -11,8 +11,7 @@ dotenv.config();
 // Création de l'objet 'auth' instancié de l'interface 'OAuth2'
 const auth: OAuth2 = {
     clientId: process.env.JIRA_CLIENT_ID,
-    clientSecret: process.env.JIRA_CLIENT_SECRET,
-    expiresIn: 3600,
+    clientSecret: process.env.JIRA_CLIENT_SECRET
 };
 
 const users: user[] = [];
@@ -60,7 +59,8 @@ const customers: customer[] = [];
         };
         users.push(utilisateur);
     }
-    // console.log(users);
+    console.log("users : ")
+    console.log(users);
 
     //! Request : Get Organizations
     const responseOrganisation: AxiosResponse = await axios.get(
@@ -80,6 +80,8 @@ const customers: customer[] = [];
         };
         organizations.push(orga);
     }
+    console.log("Organisations : ");
+    console.log(organizations);
 
     // Boucle pour récupérer chaque user dans chaque organisation
     for (let i = 0; i < organizations.length; i++) {
@@ -117,4 +119,5 @@ const customers: customer[] = [];
     }
     console.log("Customers : ");
     console.log(customers);
+    logger.info(customers);
 })();
